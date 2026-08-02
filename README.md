@@ -19,7 +19,7 @@ This repository contains the administration frontend workspace for the SPHT syst
 ## Commands
 
 ```bash
-pnpm install
+pnpm install --frozen-lockfile
 pnpm dev
 pnpm lint
 pnpm typecheck
