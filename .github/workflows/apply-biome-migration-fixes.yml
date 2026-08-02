@@ -1,0 +1,55 @@
+name: Apply migration Biome fixes
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - scripts/migration/apply-biome.trigger
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.head.ref == 'chore/monorepo-migration-v2'
+    runs-on: ubuntu-latest
+    env:
+      HUSKY: "0"
+
+    steps:
+      - name: Check out migration branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          token: ${{ github.token }}
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.14.0
+          run_install: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install workspace dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Apply safe Biome fixes
+        working-directory: apps/admin
+        run: pnpm exec biome check --write --no-errors-on-unmatched
+
+      - name: Commit formatting and lockfile
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add apps/admin pnpm-lock.yaml
+          if git diff --cached --quiet; then
+            echo "Biome fixes are already applied."
+          else
+            git commit -m "style: apply Biome migration fixes"
+            git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          fi
