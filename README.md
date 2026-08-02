@@ -11,6 +11,11 @@ This repository contains the administration frontend workspace for the SPHT syst
 - `packages/typescript-config` — shared TypeScript configuration.
 - `packages/biome-config` — shared Biome defaults.
 
+## Requirements
+
+- Node.js 22
+- pnpm 10.14.0
+
 ## Commands
 
 ```bash
