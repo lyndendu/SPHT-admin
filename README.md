@@ -13,8 +13,15 @@ This repository contains the administration frontend workspace for the SPHT syst
 
 ## Requirements
 
-- Node.js 22
-- pnpm 10.14.0
+- Node.js 24 or newer
+- pnpm 11.7.0
+
+Enable the repository package manager with Corepack:
+
+```bash
+corepack enable
+corepack prepare pnpm@11.7.0 --activate
+```
 
 ## Commands
 
@@ -24,9 +31,10 @@ pnpm dev
 pnpm lint
 pnpm typecheck
 pnpm build
+pnpm --filter @spht/admin check
 ```
 
-Pull requests run dependency installation, TypeScript checks, a production Next.js build, and Biome checks.
+Pull requests run frozen-lockfile dependency installation, TypeScript checks, a production Next.js build, and Biome checks on Node.js 24 with pnpm 11.7.0.
 
 ## Upstream attribution
 
