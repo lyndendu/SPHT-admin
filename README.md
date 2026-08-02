@@ -26,6 +26,8 @@ pnpm typecheck
 pnpm build
 ```
 
+Pull requests run dependency installation, TypeScript checks, a production Next.js build, and Biome checks.
+
 ## Upstream attribution
 
 The initial admin interface is based on `arhamkhnz/next-shadcn-admin-dashboard`, imported from commit `4727cc7533d46e44b401cac34a38da8566ae9677`. The upstream MIT license is preserved at `apps/admin/LICENSE`.
