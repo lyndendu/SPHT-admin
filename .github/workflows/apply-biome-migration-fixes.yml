@@ -38,6 +38,9 @@ jobs:
       - name: Install workspace dependencies
         run: pnpm install --no-frozen-lockfile
 
+      - name: Fix global CSS import ordering
+        run: node scripts/migration/fix-global-css-import-order.mjs
+
       - name: Apply safe Biome fixes
         working-directory: apps/admin
         run: pnpm exec biome check --write --no-errors-on-unmatched
