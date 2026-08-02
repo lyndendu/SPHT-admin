@@ -3,6 +3,10 @@ import fs from "node:fs";
 function replaceExact(file, before, after) {
   const content = fs.readFileSync(file, "utf8");
 
+  if (content.includes(after)) {
+    return;
+  }
+
   if (!content.includes(before)) {
     throw new Error(`Expected source text was not found in ${file}`);
   }
