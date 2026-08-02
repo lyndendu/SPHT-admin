@@ -13,3 +13,5 @@
 | `src/lib/utils.ts` | `packages/utils/src/index.ts` |
 
 All other tracked upstream files remain under `apps/admin`.
+
+The migration branch is validated by the repository's pull-request CI before merge.
