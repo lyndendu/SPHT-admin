@@ -2,11 +2,10 @@
 
 import * as React from "react";
 
-import { startOfMonth, startOfToday } from "date-fns";
-import { enGB } from "date-fns/locale";
-
 import { Calendar } from "@spht/ui/calendar";
 import { Card, CardContent } from "@spht/ui/card";
+import { startOfMonth, startOfToday } from "date-fns";
+import { enGB } from "date-fns/locale";
 
 export function CalendarPanel() {
   const today = startOfToday();

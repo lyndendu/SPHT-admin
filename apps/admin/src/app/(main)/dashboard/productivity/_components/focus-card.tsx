@@ -1,7 +1,6 @@
-import { BellOff } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
+import { BellOff } from "lucide-react";
 
 export function FocusCard() {
   return (

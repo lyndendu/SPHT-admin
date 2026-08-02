@@ -16,6 +16,20 @@ import {
 } from "@dnd-kit/core";
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { Badge } from "@spht/ui/badge";
+import { Button } from "@spht/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@spht/ui/dropdown-menu";
+import { Label } from "@spht/ui/label";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@spht/ui/table";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@spht/ui/tabs";
 import {
   type ColumnFiltersState,
   flexRender,
@@ -38,21 +52,6 @@ import {
   PlusIcon,
   Settings2,
 } from "lucide-react";
-
-import { Badge } from "@spht/ui/badge";
-import { Button } from "@spht/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@spht/ui/dropdown-menu";
-import { Label } from "@spht/ui/label";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@spht/ui/table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@spht/ui/tabs";
 
 import { DraggableProposalSectionsRow, proposalSectionsColumns } from "./columns";
 import type { ProposalSectionsRow } from "./schema";

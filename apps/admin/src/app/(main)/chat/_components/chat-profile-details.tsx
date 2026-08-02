@@ -1,5 +1,11 @@
 "use client";
 
+import { Avatar, AvatarFallback } from "@spht/ui/avatar";
+import { Badge } from "@spht/ui/badge";
+import { Button } from "@spht/ui/button";
+import { Separator } from "@spht/ui/separator";
+import { Tabs, TabsList, TabsTrigger } from "@spht/ui/tabs";
+import { getInitials } from "@spht/utils";
 import {
   Building2,
   Calendar,
@@ -16,13 +22,6 @@ import {
   UserRound,
   X,
 } from "lucide-react";
-
-import { Avatar, AvatarFallback } from "@spht/ui/avatar";
-import { Badge } from "@spht/ui/badge";
-import { Button } from "@spht/ui/button";
-import { Separator } from "@spht/ui/separator";
-import { Tabs, TabsList, TabsTrigger } from "@spht/ui/tabs";
-import { getInitials } from "@spht/utils";
 
 import type { Contact } from "./data";
 

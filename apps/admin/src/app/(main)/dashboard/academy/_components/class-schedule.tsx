@@ -1,8 +1,7 @@
-import { format } from "date-fns";
-import { ArrowRight } from "lucide-react";
-
 import { Badge } from "@spht/ui/badge";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
+import { format } from "date-fns";
+import { ArrowRight } from "lucide-react";
 
 export function ClassSchedule() {
   const today = format(new Date(), "EEEE, d MMMM");

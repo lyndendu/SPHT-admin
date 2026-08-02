@@ -1,22 +1,5 @@
 "use client";
 
-import {
-  AlarmClock,
-  ArrowLeft,
-  Copy,
-  Flag,
-  Link,
-  MoreHorizontal,
-  Paperclip,
-  PhoneCall,
-  Send,
-  Smile,
-  Sparkles,
-  Tag,
-  Type,
-  UserRound,
-} from "lucide-react";
-
 import { Avatar, AvatarBadge, AvatarFallback } from "@spht/ui/avatar";
 import { Bubble, BubbleContent, BubbleGroup, BubbleReactions } from "@spht/ui/bubble";
 import { Button } from "@spht/ui/button";
@@ -43,6 +26,22 @@ import { Separator } from "@spht/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@spht/ui/tabs";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@spht/ui/tooltip";
 import { cn, getInitials } from "@spht/utils";
+import {
+  AlarmClock,
+  ArrowLeft,
+  Copy,
+  Flag,
+  Link,
+  MoreHorizontal,
+  Paperclip,
+  PhoneCall,
+  Send,
+  Smile,
+  Sparkles,
+  Tag,
+  Type,
+  UserRound,
+} from "lucide-react";
 
 import { type Message as ChatMessage, type Contact, currentUser } from "./data";
 

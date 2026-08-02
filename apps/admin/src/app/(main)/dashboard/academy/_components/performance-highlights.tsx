@@ -1,11 +1,10 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-
 import { Avatar, AvatarFallback } from "@spht/ui/avatar";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
 import { type ChartConfig, ChartContainer } from "@spht/ui/chart";
+import { ArrowRight } from "lucide-react";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
 const performanceHighlights = [
   {

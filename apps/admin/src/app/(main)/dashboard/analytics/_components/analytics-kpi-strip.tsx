@@ -1,7 +1,6 @@
-import { ArrowDownRight, ArrowUpRight, Ellipsis } from "lucide-react";
-
 import { Badge } from "@spht/ui/badge";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
+import { ArrowDownRight, ArrowUpRight, Ellipsis } from "lucide-react";
 
 export function AnalyticsKpiStrip() {
   return (

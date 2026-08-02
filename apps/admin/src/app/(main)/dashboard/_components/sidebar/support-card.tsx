@@ -1,9 +1,9 @@
 import Link from "next/link";
 
+import { Card, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
 import { siX } from "simple-icons";
 
 import { SimpleIcon } from "@/components/simple-icon";
-import { Card, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
 
 export function SupportCard() {
   return (

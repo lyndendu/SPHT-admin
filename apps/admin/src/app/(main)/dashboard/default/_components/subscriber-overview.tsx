@@ -1,9 +1,8 @@
 "use client";
 
-import { Download } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
+import { Download } from "lucide-react";
 
 import customersData from "./data.json";
 import type { RecentCustomerRow } from "./recent-customers-table/schema";

@@ -1,11 +1,10 @@
 "use client";
 
-import { Ellipsis } from "lucide-react";
-import { Bar, BarChart, CartesianGrid, LabelList, type LabelProps, XAxis, YAxis } from "recharts";
-
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@spht/ui/chart";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@spht/ui/tabs";
+import { Ellipsis } from "lucide-react";
+import { Bar, BarChart, CartesianGrid, LabelList, type LabelProps, XAxis, YAxis } from "recharts";
 
 const chartConfig = {
   visitors: {

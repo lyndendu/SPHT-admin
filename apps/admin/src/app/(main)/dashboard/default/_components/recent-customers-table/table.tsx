@@ -3,6 +3,18 @@
 
 import * as React from "react";
 
+import { Button } from "@spht/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuTrigger,
+} from "@spht/ui/dropdown-menu";
+import { Input } from "@spht/ui/input";
+import { Label } from "@spht/ui/label";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@spht/ui/table";
 import {
   type ColumnFiltersState,
   flexRender,
@@ -26,19 +38,6 @@ import {
   Search,
   UsersRound,
 } from "lucide-react";
-
-import { Button } from "@spht/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuTrigger,
-} from "@spht/ui/dropdown-menu";
-import { Input } from "@spht/ui/input";
-import { Label } from "@spht/ui/label";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@spht/ui/table";
 
 import { recentCustomersColumns } from "./columns";
 import type { RecentCustomerRow } from "./schema";

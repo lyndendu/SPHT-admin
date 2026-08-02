@@ -5,6 +5,7 @@ import * as React from "react";
 import { Drawer, DrawerContent, DrawerDescription, DrawerTitle } from "@spht/ui/drawer";
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@spht/ui/resizable";
 import { useSidebar } from "@spht/ui/sidebar";
+
 import { setClientCookie } from "@/lib/cookie.client";
 
 import type { Mail } from "./data";

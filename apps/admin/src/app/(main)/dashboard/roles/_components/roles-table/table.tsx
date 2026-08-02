@@ -3,8 +3,6 @@
 
 import { useMemo } from "react";
 
-import { flexRender, type Table as TableType } from "@tanstack/react-table";
-
 import { Badge } from "@spht/ui/badge";
 import {
   Pagination,
@@ -17,6 +15,7 @@ import {
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@spht/ui/table";
 import { cn } from "@spht/utils";
+import { flexRender, type Table as TableType } from "@tanstack/react-table";
 
 import type { Role } from "./data";
 

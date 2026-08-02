@@ -2,13 +2,12 @@
 
 import * as React from "react";
 
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
-
+import { useIsMobile } from "@spht/hooks/use-mobile";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@spht/ui/chart";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
 import { ToggleGroup, ToggleGroupItem } from "@spht/ui/toggle-group";
-import { useIsMobile } from "@spht/hooks/use-mobile";
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
 const chartData = [
   { date: "2024-04-01", desktop: 222, mobile: 150 },

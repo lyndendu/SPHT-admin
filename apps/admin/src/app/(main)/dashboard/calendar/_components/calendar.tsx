@@ -8,13 +8,13 @@ import interactionPlugin from "@fullcalendar/react/interaction";
 import listPlugin from "@fullcalendar/react/list";
 import multiMonthPlugin from "@fullcalendar/react/multimonth";
 import timeGridPlugin from "@fullcalendar/react/timegrid";
+import { Button } from "@spht/ui/button";
+import { ButtonGroup } from "@spht/ui/button-group";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
 import { differenceInCalendarDays, endOfMonth, format, startOfMonth } from "date-fns";
 import { Calendar as CalendarIcon, ChevronLeft, ChevronRight, Plus, XIcon } from "lucide-react";
 
 import { EventCalendarViews } from "@/components/calendar/event-calendar-views";
-import { Button } from "@spht/ui/button";
-import { ButtonGroup } from "@spht/ui/button-group";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
 
 import { demoEvents } from "./events-data";
 

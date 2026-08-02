@@ -2,10 +2,9 @@
 
 import * as React from "react";
 
-import { Download, Printer } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { ButtonGroup } from "@spht/ui/button-group";
+import { Download, Printer } from "lucide-react";
 
 import { INVOICE_PAPER_HEIGHT, INVOICE_PAPER_SCALE, INVOICE_PAPER_WIDTH, type InvoiceFormValues } from "./data";
 import { InvoicePaper } from "./invoice-paper";

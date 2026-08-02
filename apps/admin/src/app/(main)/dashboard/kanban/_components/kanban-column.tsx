@@ -1,10 +1,9 @@
 "use client";
 
 import { SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
-import { GripVertical, MoreVertical, Plus } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { cn } from "@spht/utils";
+import { GripVertical, MoreVertical, Plus } from "lucide-react";
 
 import { SortableTaskCard } from "./sortable-task-card";
 import type { Column, Task } from "./types";

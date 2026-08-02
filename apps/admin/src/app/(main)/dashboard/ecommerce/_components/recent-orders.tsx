@@ -3,19 +3,6 @@
 
 import * as React from "react";
 
-import {
-  type ColumnFiltersState,
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  type PaginationState,
-  type SortingState,
-  useReactTable,
-} from "@tanstack/react-table";
-import { ArrowUpDown, ArrowUpRight, Download, MoreHorizontal } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
 import {
@@ -29,6 +16,18 @@ import {
 } from "@spht/ui/pagination";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@spht/ui/table";
 import { ToggleGroup, ToggleGroupItem } from "@spht/ui/toggle-group";
+import {
+  type ColumnFiltersState,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  type PaginationState,
+  type SortingState,
+  useReactTable,
+} from "@tanstack/react-table";
+import { ArrowUpDown, ArrowUpRight, Download, MoreHorizontal } from "lucide-react";
 
 import { recentOrdersColumns } from "./recent-orders-table/columns";
 import recentOrdersData from "./recent-orders-table/data.json";

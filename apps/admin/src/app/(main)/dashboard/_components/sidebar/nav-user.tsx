@@ -1,7 +1,5 @@
 "use client";
 
-import { CircleUser, CreditCard, EllipsisVertical, LogOut, MessageSquareDot } from "lucide-react";
-
 import { Avatar, AvatarFallback, AvatarImage } from "@spht/ui/avatar";
 import {
   DropdownMenu,
@@ -14,6 +12,7 @@ import {
 } from "@spht/ui/dropdown-menu";
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "@spht/ui/sidebar";
 import { getInitials } from "@spht/utils";
+import { CircleUser, CreditCard, EllipsisVertical, LogOut, MessageSquareDot } from "lucide-react";
 
 export function NavUser({
   user,

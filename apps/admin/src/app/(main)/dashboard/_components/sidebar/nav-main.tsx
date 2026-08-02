@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { ChevronRight, MailIcon, PlusCircleIcon } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@spht/ui/collapsible";
 import {
@@ -28,6 +26,8 @@ import {
   useSidebar,
 } from "@spht/ui/sidebar";
 import { cn } from "@spht/utils";
+import { ChevronRight, MailIcon, PlusCircleIcon } from "lucide-react";
+
 import type {
   NavBadge,
   NavGroup,

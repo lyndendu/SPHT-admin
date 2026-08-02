@@ -3,8 +3,6 @@
 
 import type { MouseEvent } from "react";
 
-import { flexRender, type Table as TableType } from "@tanstack/react-table";
-
 import {
   Pagination,
   PaginationContent,
@@ -17,6 +15,7 @@ import {
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
 import { Separator } from "@spht/ui/separator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@spht/ui/table";
+import { flexRender, type Table as TableType } from "@tanstack/react-table";
 
 import type { UserRow } from "./data";
 

@@ -1,9 +1,8 @@
-import { format } from "date-fns";
-import { Settings2 } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
 import { Separator } from "@spht/ui/separator";
+import { format } from "date-fns";
+import { Settings2 } from "lucide-react";
 
 import { CustomerReviews } from "./_components/customer-reviews";
 import { Inventory } from "./_components/inventory";

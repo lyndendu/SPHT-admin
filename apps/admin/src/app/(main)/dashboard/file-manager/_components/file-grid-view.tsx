@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 
-import { Star } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
 import { cn } from "@spht/utils";
+import { Star } from "lucide-react";
 
 import { type FileManagerFile, fileIcons, fileKindLabels } from "./data";
 import { FileActions } from "./file-actions";

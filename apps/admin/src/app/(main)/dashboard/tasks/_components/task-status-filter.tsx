@@ -1,9 +1,6 @@
 "use client";
 "use no memo";
 
-import type { Table } from "@tanstack/react-table";
-import { ListFilter, X } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import {
   DropdownMenu,
@@ -15,6 +12,8 @@ import {
   DropdownMenuTrigger,
 } from "@spht/ui/dropdown-menu";
 import { cn } from "@spht/utils";
+import type { Table } from "@tanstack/react-table";
+import { ListFilter, X } from "lucide-react";
 
 import { statuses } from "./data";
 

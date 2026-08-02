@@ -3,18 +3,6 @@
 
 import * as React from "react";
 
-import {
-  type ColumnFiltersState,
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  type PaginationState,
-  useReactTable,
-  type VisibilityState,
-} from "@tanstack/react-table";
-import { ChevronDownIcon, ListFilter } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
 import {
@@ -35,6 +23,17 @@ import {
   PaginationPrevious,
 } from "@spht/ui/pagination";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@spht/ui/table";
+import {
+  type ColumnFiltersState,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  type PaginationState,
+  useReactTable,
+  type VisibilityState,
+} from "@tanstack/react-table";
+import { ChevronDownIcon, ListFilter } from "lucide-react";
 
 import { opportunitiesColumns } from "./opportunities-table/columns";
 import opportunitiesData from "./opportunities-table/data.json";

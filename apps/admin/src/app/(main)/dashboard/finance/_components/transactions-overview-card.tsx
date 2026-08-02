@@ -1,11 +1,10 @@
 "use client";
 
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
-
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@spht/ui/chart";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
 import { formatCurrency } from "@spht/utils";
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const weekStart = Date.UTC(2026, 0, 5);

@@ -1,5 +1,3 @@
-import { Clock, Folder, MoreVertical } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
 import {
@@ -10,6 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@spht/ui/dropdown-menu";
 import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "@spht/ui/empty";
+import { Clock, Folder, MoreVertical } from "lucide-react";
 
 import type { FileManagerFolder } from "./data";
 

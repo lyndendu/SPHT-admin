@@ -1,8 +1,5 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
-
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
 import {
   type ChartConfig,
@@ -12,6 +9,8 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@spht/ui/chart";
+import { ArrowRight } from "lucide-react";
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 const chartData = [
   { className: "G11A", submitted: 14, pending: 18, overdue: 2 },

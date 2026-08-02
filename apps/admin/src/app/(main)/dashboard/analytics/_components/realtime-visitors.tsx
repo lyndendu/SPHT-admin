@@ -1,10 +1,9 @@
 "use client";
 
-import { Ellipsis } from "lucide-react";
-import { Bar, BarChart, type BarShapeProps, XAxis, YAxis } from "recharts";
-
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@spht/ui/chart";
+import { Ellipsis } from "lucide-react";
+import { Bar, BarChart, type BarShapeProps, XAxis, YAxis } from "recharts";
 
 const realtimeData = [
   { minute: 1, visitors: 0 },

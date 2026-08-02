@@ -2,10 +2,6 @@
 
 import { useState } from "react";
 
-import { format, subMinutes } from "date-fns";
-import { ArrowUpRight } from "lucide-react";
-import { Area, AreaChart, CartesianGrid, Line, XAxis, YAxis } from "recharts";
-
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
 import {
   type ChartConfig,
@@ -15,6 +11,9 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@spht/ui/chart";
+import { format, subMinutes } from "date-fns";
+import { ArrowUpRight } from "lucide-react";
+import { Area, AreaChart, CartesianGrid, Line, XAxis, YAxis } from "recharts";
 
 const trafficIntervalMinutes = 15;
 

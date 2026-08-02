@@ -1,7 +1,6 @@
-import { ArrowUpRight } from "lucide-react";
-
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
 import { Separator } from "@spht/ui/separator";
+import { ArrowUpRight } from "lucide-react";
 
 const categories = [
   {

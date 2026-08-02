@@ -2,11 +2,12 @@ import type { ReactNode } from "react";
 
 import { cookies } from "next/headers";
 
-import { AppSidebar } from "@/app/(main)/dashboard/_components/sidebar/app-sidebar";
 import { Separator } from "@spht/ui/separator";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@spht/ui/sidebar";
-import { users } from "@/data/users";
 import { cn } from "@spht/utils";
+
+import { AppSidebar } from "@/app/(main)/dashboard/_components/sidebar/app-sidebar";
+import { users } from "@/data/users";
 import { getPreference } from "@/server/server-actions";
 
 import { AccountSwitcher } from "./_components/header/account-switcher";

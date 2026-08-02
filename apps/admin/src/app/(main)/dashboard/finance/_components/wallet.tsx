@@ -1,8 +1,8 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
+import { Separator } from "@spht/ui/separator";
 import { siBarclays, siBitcoin, siEthereum, siHsbc, siRevolut } from "simple-icons";
 
 import { SimpleIcon } from "@/components/simple-icon";
-import { Card, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
-import { Separator } from "@spht/ui/separator";
 
 const walletCards = [
   {

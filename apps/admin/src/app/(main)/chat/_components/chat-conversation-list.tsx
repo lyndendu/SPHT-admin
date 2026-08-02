@@ -1,7 +1,5 @@
 "use client";
 
-import { ChevronDown, Filter, PanelRightClose, PanelRightOpen, Pin } from "lucide-react";
-
 import { Avatar, AvatarBadge, AvatarFallback } from "@spht/ui/avatar";
 import { Button } from "@spht/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@spht/ui/collapsible";
@@ -10,6 +8,7 @@ import { Separator } from "@spht/ui/separator";
 import { useSidebar } from "@spht/ui/sidebar";
 import { Tabs, TabsList, TabsTrigger } from "@spht/ui/tabs";
 import { cn, getInitials } from "@spht/utils";
+import { ChevronDown, Filter, PanelRightClose, PanelRightOpen, Pin } from "lucide-react";
 
 import type { Conversation } from "./data";
 import { useChat } from "./use-chat";

@@ -2,12 +2,7 @@
 "use no memo";
 
 import { useSortable } from "@dnd-kit/sortable";
-import type { ColumnDef, Row } from "@tanstack/react-table";
-import { flexRender } from "@tanstack/react-table";
-import { CircleCheckIcon, EllipsisVerticalIcon, GripVerticalIcon, LoaderIcon, TrendingUpIcon } from "lucide-react";
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
-import { toast } from "sonner";
-
+import { useIsMobile } from "@spht/hooks/use-mobile";
 import { Badge } from "@spht/ui/badge";
 import { Button } from "@spht/ui/button";
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@spht/ui/chart";
@@ -34,7 +29,11 @@ import { Label } from "@spht/ui/label";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
 import { Separator } from "@spht/ui/separator";
 import { TableCell, TableRow } from "@spht/ui/table";
-import { useIsMobile } from "@spht/hooks/use-mobile";
+import type { ColumnDef, Row } from "@tanstack/react-table";
+import { flexRender } from "@tanstack/react-table";
+import { CircleCheckIcon, EllipsisVerticalIcon, GripVerticalIcon, LoaderIcon, TrendingUpIcon } from "lucide-react";
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { toast } from "sonner";
 
 import type { ProposalSectionsRow } from "./schema";
 

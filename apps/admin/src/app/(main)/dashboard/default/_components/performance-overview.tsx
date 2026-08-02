@@ -1,8 +1,5 @@
 "use client";
 
-import { addHours, endOfToday, format, parseISO, subHours } from "date-fns";
-import { Area, CartesianGrid, ComposedChart, Line, XAxis } from "recharts";
-
 import { Button } from "@spht/ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
 import {
@@ -22,6 +19,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@spht/ui/select";
+import { addHours, endOfToday, format, parseISO, subHours } from "date-fns";
+import { Area, CartesianGrid, ComposedChart, Line, XAxis } from "recharts";
 
 const chartValues = [
   { newCustomers: 23840, activeAccounts: 6630, returningUsers: 4880 },

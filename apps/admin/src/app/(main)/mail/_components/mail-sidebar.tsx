@@ -2,8 +2,6 @@
 
 import * as React from "react";
 
-import { Check, EllipsisVertical, LogOut, PenLine, Settings2, UserPlus, UsersRound } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import {
   DropdownMenu,
@@ -32,6 +30,7 @@ import {
 } from "@spht/ui/sidebar";
 import { ToggleGroup, ToggleGroupItem } from "@spht/ui/toggle-group";
 import { cn, getInitials } from "@spht/utils";
+import { Check, EllipsisVertical, LogOut, PenLine, Settings2, UserPlus, UsersRound } from "lucide-react";
 
 import { accounts, type MailNavItem, mailNavigation } from "./data";
 

@@ -1,12 +1,11 @@
 "use client";
 "use no memo";
 
+import { Badge } from "@spht/ui/badge";
+import { Checkbox } from "@spht/ui/checkbox";
 import type { ColumnDef } from "@tanstack/react-table";
 import { addMinutes, differenceInCalendarDays, endOfToday, format, parseISO } from "date-fns";
 import { CircleAlertIcon, CircleCheckIcon, Clock3Icon, LoaderIcon, UserRound } from "lucide-react";
-
-import { Badge } from "@spht/ui/badge";
-import { Checkbox } from "@spht/ui/checkbox";
 
 import type { RecentCustomerRow } from "./schema";
 

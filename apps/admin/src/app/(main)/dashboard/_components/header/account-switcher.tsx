@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 
-import { BadgeCheck, Bell, Check, CreditCard, LogOut } from "lucide-react";
-
 import { Avatar, AvatarFallback, AvatarImage } from "@spht/ui/avatar";
 import {
   DropdownMenu,
@@ -14,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@spht/ui/dropdown-menu";
 import { cn, getInitials } from "@spht/utils";
+import { BadgeCheck, Bell, Check, CreditCard, LogOut } from "lucide-react";
 
 export function AccountSwitcher({
   users,

@@ -1,10 +1,9 @@
 "use client";
 
-import { WalletMinimal } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
 import { formatCurrency } from "@spht/utils";
+import { WalletMinimal } from "lucide-react";
 
 export function PrimaryAccount() {
   return (

@@ -1,7 +1,6 @@
-import { TrendingDown, TrendingUp } from "lucide-react";
-
 import { Badge } from "@spht/ui/badge";
 import { Card, CardAction, CardDescription, CardFooter, CardHeader, CardTitle } from "@spht/ui/card";
+import { TrendingDown, TrendingUp } from "lucide-react";
 
 export function SectionCards() {
   return (

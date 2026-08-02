@@ -1,7 +1,6 @@
-import { TrendingUp } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@spht/ui/item";
+import { TrendingUp } from "lucide-react";
 
 export function FinanceNotification() {
   return (

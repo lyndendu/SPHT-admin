@@ -1,6 +1,5 @@
-import { CheckSquare, FileText, Focus, Orbit, Upload } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
+import { CheckSquare, FileText, Focus, Orbit, Upload } from "lucide-react";
 
 const quickActions = [
   { label: "New Note", icon: FileText },

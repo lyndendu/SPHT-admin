@@ -2,9 +2,8 @@
 
 import type * as React from "react";
 
-import type { SimpleIcon as SimpleIconType } from "simple-icons";
-
 import { cn } from "@spht/utils";
+import type { SimpleIcon as SimpleIconType } from "simple-icons";
 
 type SimpleIconProps = {
   icon: SimpleIconType;

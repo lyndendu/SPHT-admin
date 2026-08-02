@@ -1,9 +1,8 @@
 "use client";
 
-import { HandCoins } from "lucide-react";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
 import { Separator } from "@spht/ui/separator";
+import { HandCoins } from "lucide-react";
 
 export function SavingsRate() {
   return (

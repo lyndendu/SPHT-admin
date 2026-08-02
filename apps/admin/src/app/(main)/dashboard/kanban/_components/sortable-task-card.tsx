@@ -1,7 +1,6 @@
 "use client";
 
 import { useSortable } from "@dnd-kit/sortable";
-
 import { cn } from "@spht/utils";
 
 import { TaskCard } from "./task-card";

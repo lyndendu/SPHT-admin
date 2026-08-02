@@ -1,8 +1,7 @@
-import { CalendarDays, CalendarRange } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
 import { cn } from "@spht/utils";
+import { CalendarDays, CalendarRange } from "lucide-react";
 
 const proposalSent = 12;
 const proposalGoal = 18;

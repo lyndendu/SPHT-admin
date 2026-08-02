@@ -2,12 +2,6 @@
 
 import * as React from "react";
 
-import { eachDayOfInterval, format, startOfDay, subDays } from "date-fns";
-import { Check, ChevronsUpDown, Download } from "lucide-react";
-import type { DateRange } from "react-day-picker";
-import { Area, ComposedChart, XAxis, YAxis } from "recharts";
-
-import { DateRangePicker } from "@/components/date-range-picker";
 import { Badge } from "@spht/ui/badge";
 import { Button } from "@spht/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
@@ -17,6 +11,12 @@ import { Command, CommandGroup, CommandItem, CommandList } from "@spht/ui/comman
 import { Label } from "@spht/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@spht/ui/popover";
 import { cn } from "@spht/utils";
+import { eachDayOfInterval, format, startOfDay, subDays } from "date-fns";
+import { Check, ChevronsUpDown, Download } from "lucide-react";
+import type { DateRange } from "react-day-picker";
+import { Area, ComposedChart, XAxis, YAxis } from "recharts";
+
+import { DateRangePicker } from "@/components/date-range-picker";
 
 type RiskView = "risk-view" | "momentum" | "quality";
 type FilterToggleKey = "enterpriseOnly" | "stalledOnly" | "overdueOnly" | "includeRenewals";

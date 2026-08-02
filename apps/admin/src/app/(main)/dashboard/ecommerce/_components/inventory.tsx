@@ -1,11 +1,10 @@
 "use client";
 
-import { ArrowUpRight, PackageCheck, PackageX, TriangleAlert } from "lucide-react";
-import { Label, Pie, PieChart } from "recharts";
-
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
 import { type ChartConfig, ChartContainer } from "@spht/ui/chart";
 import { Separator } from "@spht/ui/separator";
+import { ArrowUpRight, PackageCheck, PackageX, TriangleAlert } from "lucide-react";
+import { Label, Pie, PieChart } from "recharts";
 
 const chartData = [{ month: "current", "in-stock": 760, "low-stock": 320, "out-of-stock": 160 }];
 const totalUnits = chartData[0]["in-stock"] + chartData[0]["low-stock"] + chartData[0]["out-of-stock"];

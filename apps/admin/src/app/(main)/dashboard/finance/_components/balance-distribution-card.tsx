@@ -2,12 +2,11 @@
 
 import * as React from "react";
 
-import { Label, Pie, PieChart } from "recharts";
-
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@spht/ui/chart";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
 import { formatCurrency } from "@spht/utils";
+import { Label, Pie, PieChart } from "recharts";
 
 type BalanceKey = "investment" | "main" | "reserve" | "savings";
 

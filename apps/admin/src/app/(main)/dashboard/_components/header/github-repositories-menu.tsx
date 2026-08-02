@@ -2,9 +2,6 @@
 
 import Link from "next/link";
 
-import { siGithub } from "simple-icons";
-
-import { SimpleIcon } from "@/components/simple-icon";
 import { Button } from "@spht/ui/button";
 import {
   DropdownMenu,
@@ -14,6 +11,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@spht/ui/dropdown-menu";
+import { siGithub } from "simple-icons";
+
+import { SimpleIcon } from "@/components/simple-icon";
 
 const repositories = [
   {

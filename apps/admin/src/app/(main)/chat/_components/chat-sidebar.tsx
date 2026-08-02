@@ -1,9 +1,5 @@
 "use client";
 
-import { EllipsisVertical, LogOut, Settings, UserRound } from "lucide-react";
-import { siFacebook, siInstagram, siWhatsapp } from "simple-icons";
-
-import { SimpleIcon } from "@/components/simple-icon";
 import { Avatar, AvatarFallback } from "@spht/ui/avatar";
 import {
   DropdownMenu,
@@ -28,6 +24,10 @@ import {
   useSidebar,
 } from "@spht/ui/sidebar";
 import { getInitials } from "@spht/utils";
+import { EllipsisVertical, LogOut, Settings, UserRound } from "lucide-react";
+import { siFacebook, siInstagram, siWhatsapp } from "simple-icons";
+
+import { SimpleIcon } from "@/components/simple-icon";
 
 import { channelItems, currentUser, navItems, viewItems } from "./data";
 

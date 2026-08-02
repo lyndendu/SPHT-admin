@@ -1,8 +1,7 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight, Star } from "lucide-react";
-
 import { Avatar, AvatarFallback, AvatarGroup, AvatarGroupCount } from "@spht/ui/avatar";
 import { Button } from "@spht/ui/button";
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Star } from "lucide-react";
 
 const customerInitials = ["EM", "OW", "NO", "MM"] as const;
 

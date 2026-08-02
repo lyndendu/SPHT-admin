@@ -4,8 +4,6 @@ import * as React from "react";
 
 import { useRouter } from "next/navigation";
 
-import { Search } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import {
   Command,
@@ -17,6 +15,8 @@ import {
   CommandList,
   CommandSeparator,
 } from "@spht/ui/command";
+import { Search } from "lucide-react";
+
 import type { NavMainItem } from "@/navigation/sidebar/sidebar-items";
 import { sidebarItems } from "@/navigation/sidebar/sidebar-items";
 

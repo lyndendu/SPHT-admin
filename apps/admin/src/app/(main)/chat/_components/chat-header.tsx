@@ -1,7 +1,6 @@
-import { Bell, MessageSquarePlus, Search, Settings } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@spht/ui/input-group";
+import { Bell, MessageSquarePlus, Search, Settings } from "lucide-react";
 
 export function ChatHeader() {
   return (

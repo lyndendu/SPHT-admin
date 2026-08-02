@@ -14,13 +14,12 @@ import {
   useSortable,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import { GripVertical, Plus, Trash2 } from "lucide-react";
-import type { UseFormRegister } from "react-hook-form";
-import { useFieldArray, useFormContext, useWatch } from "react-hook-form";
-
 import { Button } from "@spht/ui/button";
 import { Input } from "@spht/ui/input";
 import { cn, formatCurrency } from "@spht/utils";
+import { GripVertical, Plus, Trash2 } from "lucide-react";
+import type { UseFormRegister } from "react-hook-form";
+import { useFieldArray, useFormContext, useWatch } from "react-hook-form";
 
 import { getLineAmount, type InvoiceFormValues, type InvoiceLineItem } from "./data";
 

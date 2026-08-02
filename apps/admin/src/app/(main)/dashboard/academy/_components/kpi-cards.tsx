@@ -1,7 +1,6 @@
-import { ArrowUp, Info } from "lucide-react";
-
 import { Badge } from "@spht/ui/badge";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
+import { ArrowUp, Info } from "lucide-react";
 
 export function KpiCards() {
   return (

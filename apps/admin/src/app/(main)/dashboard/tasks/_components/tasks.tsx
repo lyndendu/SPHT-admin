@@ -4,6 +4,18 @@
 import * as React from "react";
 
 import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@spht/ui/pagination";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@spht/ui/table";
+import { cn } from "@spht/utils";
+import {
   type ColumnFiltersState,
   flexRender,
   getCoreRowModel,
@@ -16,19 +28,6 @@ import {
   type VisibilityState,
 } from "@tanstack/react-table";
 import { ChevronsLeft, ChevronsRight } from "lucide-react";
-
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@spht/ui/pagination";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@spht/ui/table";
-import { cn } from "@spht/utils";
 
 import { columns } from "./columns";
 import type { Task } from "./data";

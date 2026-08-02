@@ -1,11 +1,10 @@
-import { Plane, Search, Ship, SlidersHorizontal, Truck } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@spht/ui/input-group";
 import { ScrollArea } from "@spht/ui/scroll-area";
 import { Tabs, TabsList, TabsTrigger } from "@spht/ui/tabs";
 import { cn } from "@spht/utils";
+import { Plane, Search, Ship, SlidersHorizontal, Truck } from "lucide-react";
 
 import type { Shipment } from "./shipment-data";
 

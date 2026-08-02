@@ -2,9 +2,6 @@
 
 import Link from "next/link";
 
-import { Command } from "lucide-react";
-import { useShallow } from "zustand/react/shallow";
-
 import {
   Sidebar,
   SidebarContent,
@@ -14,6 +11,9 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@spht/ui/sidebar";
+import { Command } from "lucide-react";
+import { useShallow } from "zustand/react/shallow";
+
 import { APP_CONFIG } from "@/config/app-config";
 import { rootUser } from "@/data/users";
 import { sidebarItems } from "@/navigation/sidebar/sidebar-items";

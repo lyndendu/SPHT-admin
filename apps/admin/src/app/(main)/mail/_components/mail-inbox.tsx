@@ -1,11 +1,10 @@
 "use client";
 
-import { Ellipsis, RotateCcw, Search, SlidersHorizontal } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@spht/ui/input-group";
 import { Separator } from "@spht/ui/separator";
 import { SidebarTrigger } from "@spht/ui/sidebar";
+import { Ellipsis, RotateCcw, Search, SlidersHorizontal } from "lucide-react";
 
 import type { Mail } from "./data";
 import { MailList } from "./mail-list";

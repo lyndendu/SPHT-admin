@@ -1,13 +1,13 @@
 "use client";
 
-import { Settings } from "lucide-react";
-import { useShallow } from "zustand/react/shallow";
-
 import { Button } from "@spht/ui/button";
 import { Label } from "@spht/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@spht/ui/popover";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
 import { ToggleGroup, ToggleGroupItem } from "@spht/ui/toggle-group";
+import { Settings } from "lucide-react";
+import { useShallow } from "zustand/react/shallow";
+
 import { type FontKey, fontOptions } from "@/lib/fonts/registry";
 import type { ContentLayout, NavbarStyle, SidebarCollapsible, SidebarVariant } from "@/lib/preferences/layout";
 import { THEME_PRESET_OPTIONS, type ThemeMode, type ThemePreset } from "@/lib/preferences/theme";

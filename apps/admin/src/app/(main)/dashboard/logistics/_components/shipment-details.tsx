@@ -1,5 +1,3 @@
-import { AlertTriangleIcon, Copy, Plane, Ship, Star, Truck } from "lucide-react";
-
 import { Alert, AlertDescription, AlertTitle } from "@spht/ui/alert";
 import { Avatar, AvatarFallback } from "@spht/ui/avatar";
 import { Badge } from "@spht/ui/badge";
@@ -7,6 +5,7 @@ import { Button } from "@spht/ui/button";
 import { Separator } from "@spht/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@spht/ui/tabs";
 import { cn } from "@spht/utils";
+import { AlertTriangleIcon, Copy, Plane, Ship, Star, Truck } from "lucide-react";
 
 import type { Shipment } from "./shipment-data";
 import { ShipmentRouteMap } from "./shipment-route-map";

@@ -1,10 +1,9 @@
 "use client";
 
-import { Ellipsis } from "lucide-react";
-import { CartesianGrid, ComposedChart, Line, XAxis, YAxis } from "recharts";
-
 import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@spht/ui/chart";
+import { Ellipsis } from "lucide-react";
+import { CartesianGrid, ComposedChart, Line, XAxis, YAxis } from "recharts";
 
 const qualitySeries = [
   { date: "2026-04-01T00:00:00.000Z", actualQuality: 0.4, baselineQuality: -1.2 },

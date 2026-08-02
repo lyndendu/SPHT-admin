@@ -1,8 +1,5 @@
 "use client";
 
-import type { Column, ColumnDef } from "@tanstack/react-table";
-import { ArrowDown, ArrowUp, ArrowUpDown, MoreHorizontal, RotateCcw } from "lucide-react";
-
 import { Badge } from "@spht/ui/badge";
 import { Button } from "@spht/ui/button";
 import { Checkbox } from "@spht/ui/checkbox";
@@ -20,6 +17,8 @@ import {
   DropdownMenuTrigger,
 } from "@spht/ui/dropdown-menu";
 import { cn } from "@spht/utils";
+import type { Column, ColumnDef } from "@tanstack/react-table";
+import { ArrowDown, ArrowUp, ArrowUpDown, MoreHorizontal, RotateCcw } from "lucide-react";
 
 import { labels, priorities, statuses, type Task } from "./data";
 

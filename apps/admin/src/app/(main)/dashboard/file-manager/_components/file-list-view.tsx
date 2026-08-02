@@ -2,13 +2,12 @@
 
 import { useState } from "react";
 
-import { Star } from "lucide-react";
-
 import { Avatar, AvatarFallback } from "@spht/ui/avatar";
 import { Badge } from "@spht/ui/badge";
 import { Button } from "@spht/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@spht/ui/table";
 import { cn } from "@spht/utils";
+import { Star } from "lucide-react";
 
 import { type FileManagerFile, fileIcons } from "./data";
 import { FileActions } from "./file-actions";

@@ -1,7 +1,6 @@
-import { DollarSign, TrendingDown, TrendingUp, UserPlus, Users, Waves } from "lucide-react";
-
 import { Badge } from "@spht/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@spht/ui/card";
+import { DollarSign, TrendingDown, TrendingUp, UserPlus, Users, Waves } from "lucide-react";
 
 export function MetricCards() {
   return (

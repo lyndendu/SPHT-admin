@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 
+import { Toaster } from "@spht/ui/sonner";
+import { TooltipProvider } from "@spht/ui/tooltip";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 
-import { Toaster } from "@spht/ui/sonner";
-import { TooltipProvider } from "@spht/ui/tooltip";
 import { APP_CONFIG } from "@/config/app-config";
 import { fontVars } from "@/lib/fonts/registry";
 import { PREFERENCE_DEFAULTS } from "@/lib/preferences/preferences-config";

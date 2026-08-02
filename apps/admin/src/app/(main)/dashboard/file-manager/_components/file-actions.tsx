@@ -1,5 +1,3 @@
-import { Download, MoreVertical, Share2, Star, Trash2 } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import {
   DropdownMenu,
@@ -9,6 +7,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@spht/ui/dropdown-menu";
+import { Download, MoreVertical, Share2, Star, Trash2 } from "lucide-react";
 
 import type { FileManagerFile } from "./data";
 

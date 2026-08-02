@@ -2,12 +2,11 @@
 
 import * as React from "react";
 
-import { Calendar1, Plus } from "lucide-react";
-
 import { Badge } from "@spht/ui/badge";
 import { Button } from "@spht/ui/button";
 import { Checkbox } from "@spht/ui/checkbox";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
+import { Calendar1, Plus } from "lucide-react";
 
 type Task = {
   title: string;

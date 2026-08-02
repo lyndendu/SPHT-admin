@@ -1,5 +1,3 @@
-import { Ellipsis, FileDown, FileUp, RefreshCw, Share2 } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import {
   DropdownMenu,
@@ -11,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@spht/ui/dropdown-menu";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
+import { Ellipsis, FileDown, FileUp, RefreshCw, Share2 } from "lucide-react";
 
 export function AnalyticsToolbar() {
   return (

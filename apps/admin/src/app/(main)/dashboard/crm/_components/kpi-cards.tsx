@@ -1,7 +1,6 @@
-import { ArrowUpRight, TrendingDown, TrendingUp } from "lucide-react";
-
 import { Badge } from "@spht/ui/badge";
 import { Card, CardAction, CardContent, CardDescription, CardHeader } from "@spht/ui/card";
+import { ArrowUpRight, TrendingDown, TrendingUp } from "lucide-react";
 
 export function KpiCards() {
   return (

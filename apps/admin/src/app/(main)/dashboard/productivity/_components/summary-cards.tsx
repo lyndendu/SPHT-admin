@@ -1,6 +1,5 @@
-import { ArrowRight, Clock3, Focus, TrendingUp } from "lucide-react";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
+import { ArrowRight, Clock3, Focus, TrendingUp } from "lucide-react";
 
 const summaryCards = [
   { title: "Today", value: "4", description: "tasks scheduled", icon: Clock3 },

@@ -1,10 +1,9 @@
 "use client";
 
-import { Bar, BarChart, CartesianGrid, Label, LabelList, Pie, PieChart, XAxis, YAxis } from "recharts";
-
 import { Button } from "@spht/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@spht/ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@spht/ui/chart";
+import { Bar, BarChart, CartesianGrid, Label, LabelList, Pie, PieChart, XAxis, YAxis } from "recharts";
 
 import {
   leadsBySourceChartConfig,

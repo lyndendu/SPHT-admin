@@ -1,10 +1,9 @@
 "use client";
 
-import { Calendar, TrendingUp } from "lucide-react";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
 import { Separator } from "@spht/ui/separator";
 import { formatCurrency } from "@spht/utils";
+import { Calendar, TrendingUp } from "lucide-react";
 
 export function MonthlyCashFlow() {
   return (

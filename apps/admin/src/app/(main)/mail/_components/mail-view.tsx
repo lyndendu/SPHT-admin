@@ -1,5 +1,20 @@
 "use client";
 
+import { Avatar, AvatarFallback } from "@spht/ui/avatar";
+import { Button } from "@spht/ui/button";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@spht/ui/collapsible";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@spht/ui/dropdown-menu";
+import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "@spht/ui/input-group";
+import { Separator } from "@spht/ui/separator";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@spht/ui/tooltip";
+import { cn } from "@spht/utils";
 import { format } from "date-fns/format";
 import {
   Archive,
@@ -21,21 +36,6 @@ import {
 } from "lucide-react";
 
 import { SimpleIcon } from "@/components/simple-icon";
-import { Avatar, AvatarFallback } from "@spht/ui/avatar";
-import { Button } from "@spht/ui/button";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@spht/ui/collapsible";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@spht/ui/dropdown-menu";
-import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from "@spht/ui/input-group";
-import { Separator } from "@spht/ui/separator";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@spht/ui/tooltip";
-import { cn } from "@spht/utils";
 
 import type { Mail } from "./data";
 import { useMail } from "./use-mail";

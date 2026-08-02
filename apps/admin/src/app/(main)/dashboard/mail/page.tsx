@@ -1,8 +1,7 @@
 import Link from "next/link";
 
-import { ExternalLink } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
+import { ExternalLink } from "lucide-react";
 
 export default function Page() {
   return (

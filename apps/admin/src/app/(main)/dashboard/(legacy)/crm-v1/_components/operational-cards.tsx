@@ -1,13 +1,12 @@
 "use client";
 
-import { Clock } from "lucide-react";
-import { Funnel, FunnelChart, LabelList } from "recharts";
-
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@spht/ui/card";
 import { ChartContainer } from "@spht/ui/chart";
 import { Checkbox } from "@spht/ui/checkbox";
 import { Progress } from "@spht/ui/progress";
 import { cn, formatCurrency } from "@spht/utils";
+import { Clock } from "lucide-react";
+import { Funnel, FunnelChart, LabelList } from "recharts";
 
 import { actionItems, regionSalesData, salesPipelineChartConfig, salesPipelineChartData } from "./crm.config";
 

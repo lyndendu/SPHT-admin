@@ -1,9 +1,9 @@
 "use client";
 
+import { Button } from "@spht/ui/button";
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useShallow } from "zustand/react/shallow";
 
-import { Button } from "@spht/ui/button";
 import { usePreferencesStore } from "@/stores/preferences/preferences-provider";
 
 const THEME_CYCLE = ["light", "dark", "system"] as const;

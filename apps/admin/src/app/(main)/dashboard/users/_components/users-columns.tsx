@@ -1,10 +1,6 @@
 "use client";
 "use no memo";
 
-import type { ColumnDef } from "@tanstack/react-table";
-import { parse } from "date-fns";
-import { Check, Clock, MoreHorizontal, X } from "lucide-react";
-
 import { Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount } from "@spht/ui/avatar";
 import { Badge } from "@spht/ui/badge";
 import { Button } from "@spht/ui/button";
@@ -17,6 +13,9 @@ import {
   DropdownMenuTrigger,
 } from "@spht/ui/dropdown-menu";
 import { cn, getInitials } from "@spht/utils";
+import type { ColumnDef } from "@tanstack/react-table";
+import { parse } from "date-fns";
+import { Check, Clock, MoreHorizontal, X } from "lucide-react";
 
 import { statusMeta, type UserRow } from "./data";
 

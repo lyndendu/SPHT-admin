@@ -1,5 +1,10 @@
 "use client";
 
+import { Avatar, AvatarFallback } from "@spht/ui/avatar";
+import { Badge } from "@spht/ui/badge";
+import { Progress } from "@spht/ui/progress";
+import { Separator } from "@spht/ui/separator";
+import { cn, getInitials } from "@spht/utils";
 import {
   ArrowUpRight,
   BadgeCheck,
@@ -11,12 +16,6 @@ import {
   Minus,
   Paperclip,
 } from "lucide-react";
-
-import { Avatar, AvatarFallback } from "@spht/ui/avatar";
-import { Badge } from "@spht/ui/badge";
-import { Progress } from "@spht/ui/progress";
-import { Separator } from "@spht/ui/separator";
-import { cn, getInitials } from "@spht/utils";
 
 import { tagTones } from "./data";
 import type { ColumnId, Task, TaskInsightLabel, TaskPriority } from "./types";

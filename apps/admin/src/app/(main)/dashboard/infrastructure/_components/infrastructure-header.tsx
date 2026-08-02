@@ -1,9 +1,8 @@
-import { Box, Container, Filter, PlusCircle, RefreshCw, Search, Server, Settings } from "lucide-react";
-
 import { Badge } from "@spht/ui/badge";
 import { Button } from "@spht/ui/button";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@spht/ui/input-group";
 import { Kbd } from "@spht/ui/kbd";
+import { Box, Container, Filter, PlusCircle, RefreshCw, Search, Server, Settings } from "lucide-react";
 
 export function InfrastructureHeader() {
   return (

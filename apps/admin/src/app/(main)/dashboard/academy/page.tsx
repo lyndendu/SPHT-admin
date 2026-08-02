@@ -1,6 +1,5 @@
-import { BookOpenCheck, Megaphone, Plus } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
+import { BookOpenCheck, Megaphone, Plus } from "lucide-react";
 
 import { AssignmentStatus } from "./_components/assignment-status";
 import { ClassSchedule } from "./_components/class-schedule";

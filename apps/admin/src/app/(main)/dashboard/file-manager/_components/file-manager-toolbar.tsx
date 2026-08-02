@@ -1,5 +1,3 @@
-import { ArrowUpDown, Search, SlidersHorizontal } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import {
   DropdownMenu,
@@ -15,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@spht/ui/dropdown-menu";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@spht/ui/input-group";
+import { ArrowUpDown, Search, SlidersHorizontal } from "lucide-react";
 
 export function FileManagerToolbar() {
   return (

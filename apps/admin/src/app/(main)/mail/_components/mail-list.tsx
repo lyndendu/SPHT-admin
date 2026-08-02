@@ -1,10 +1,9 @@
-import { differenceInDays } from "date-fns/differenceInDays";
-import { format } from "date-fns/format";
-import { formatDistanceToNow } from "date-fns/formatDistanceToNow";
-
 import { Avatar, AvatarFallback } from "@spht/ui/avatar";
 import { ScrollArea } from "@spht/ui/scroll-area";
 import { cn } from "@spht/utils";
+import { differenceInDays } from "date-fns/differenceInDays";
+import { format } from "date-fns/format";
+import { formatDistanceToNow } from "date-fns/formatDistanceToNow";
 
 import type { Mail } from "./data";
 import { useMail } from "./use-mail";

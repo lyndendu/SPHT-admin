@@ -1,14 +1,13 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Controller, useForm } from "react-hook-form";
-import { toast } from "sonner";
-import { z } from "zod";
-
 import { Button } from "@spht/ui/button";
 import { Checkbox } from "@spht/ui/checkbox";
 import { Field, FieldContent, FieldError, FieldGroup, FieldLabel } from "@spht/ui/field";
 import { Input } from "@spht/ui/input";
+import { Controller, useForm } from "react-hook-form";
+import { toast } from "sonner";
+import { z } from "zod";
 
 const formSchema = z.object({
   email: z.email({ message: "Please enter a valid email address." }),

@@ -1,9 +1,6 @@
 "use client";
 "use no memo";
 
-import type { ColumnDef } from "@tanstack/react-table";
-import { MoreVertical } from "lucide-react";
-
 import { Badge } from "@spht/ui/badge";
 import { Button } from "@spht/ui/button";
 import {
@@ -14,6 +11,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@spht/ui/dropdown-menu";
+import type { ColumnDef } from "@tanstack/react-table";
+import { MoreVertical } from "lucide-react";
 
 import type { Role } from "./data";
 

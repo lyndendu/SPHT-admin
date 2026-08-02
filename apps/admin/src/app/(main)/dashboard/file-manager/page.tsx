@@ -1,9 +1,8 @@
 import Link from "next/link";
 
-import { FolderPlus, Grid2X2, List, Upload } from "lucide-react";
-
 import { Button } from "@spht/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@spht/ui/toggle-group";
+import { FolderPlus, Grid2X2, List, Upload } from "lucide-react";
 
 import { type FileManagerView, files, folders } from "./_components/data";
 import { FileGridView } from "./_components/file-grid-view";

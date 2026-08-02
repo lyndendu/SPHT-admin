@@ -1,3 +1,8 @@
+import { Avatar, AvatarFallback } from "@spht/ui/avatar";
+import { Button } from "@spht/ui/button";
+import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
+import { Field } from "@spht/ui/field";
+import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "@spht/ui/input-group";
 import {
   Banknote,
   ChevronRight,
@@ -9,12 +14,6 @@ import {
   SendHorizontal,
   Smartphone,
 } from "lucide-react";
-
-import { Avatar, AvatarFallback } from "@spht/ui/avatar";
-import { Button } from "@spht/ui/button";
-import { Card, CardAction, CardContent, CardHeader, CardTitle } from "@spht/ui/card";
-import { Field } from "@spht/ui/field";
-import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "@spht/ui/input-group";
 
 const contacts = [
   { id: 1, initials: "AR" },

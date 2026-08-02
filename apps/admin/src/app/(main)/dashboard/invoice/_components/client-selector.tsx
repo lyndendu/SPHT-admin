@@ -1,11 +1,10 @@
-import { Plus } from "lucide-react";
-import { Controller, useFormContext } from "react-hook-form";
-
 import { Avatar, AvatarFallback } from "@spht/ui/avatar";
 import { Button } from "@spht/ui/button";
 import { Field, FieldLabel } from "@spht/ui/field";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@spht/ui/select";
 import { getInitials } from "@spht/utils";
+import { Plus } from "lucide-react";
+import { Controller, useFormContext } from "react-hook-form";
 
 import { type InvoiceFormValues, invoiceClients } from "./data";
 
