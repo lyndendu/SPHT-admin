@@ -1,0 +1,504 @@
+name: Import admin dashboard into monorepo
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/import-admin.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: spht-admin-monorepo-migration
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    if: github.repository == 'lyndendu/SPHT-admin'
+    runs-on: ubuntu-latest
+    env:
+      HUSKY: "0"
+      SOURCE_REPOSITORY: arhamkhnz/next-shadcn-admin-dashboard
+      SOURCE_COMMIT: 4727cc7533d46e44b401cac34a38da8566ae9677
+      MIGRATION_BRANCH: chore/monorepo-migration
+
+    steps:
+      - name: Check out target repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$MIGRATION_BRANCH"
+
+      - name: Clone the exact upstream snapshot
+        run: |
+          rm -rf /tmp/upstream-admin
+          git clone "https://github.com/${SOURCE_REPOSITORY}.git" /tmp/upstream-admin
+          git -C /tmp/upstream-admin checkout --detach "$SOURCE_COMMIT"
+          git -C /tmp/upstream-admin rev-parse HEAD | grep -Fx "$SOURCE_COMMIT"
+          git -C /tmp/upstream-admin ls-files -z > /tmp/upstream-files.zlist
+
+      - name: Place the complete upstream repository in apps/admin
+        run: |
+          rm -rf apps packages
+          mkdir -p apps/admin packages
+          cp -a /tmp/upstream-admin/. apps/admin/
+          rm -rf apps/admin/.git
+
+      - name: Extract reusable packages and configure the workspace
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s dotglob nullglob
+
+          mkdir -p packages/ui/src packages/hooks/src packages/utils/src
+          mv apps/admin/src/components/ui/* packages/ui/src/
+          rmdir apps/admin/src/components/ui
+          mv apps/admin/src/hooks/* packages/hooks/src/
+          rmdir apps/admin/src/hooks
+          mv apps/admin/src/lib/utils.ts packages/utils/src/index.ts
+
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+
+          const readJson = (file) => JSON.parse(fs.readFileSync(file, 'utf8'));
+          const writeJson = (file, value) => fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`);
+
+          function walk(directory) {
+            return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+              const fullPath = path.join(directory, entry.name);
+              return entry.isDirectory() ? walk(fullPath) : [fullPath];
+            });
+          }
+
+          const sourceFiles = [
+            ...walk('apps/admin/src'),
+            ...walk('packages/ui/src'),
+            ...walk('packages/hooks/src'),
+            ...walk('packages/utils/src'),
+          ].filter((file) => /\.(?:[cm]?[jt]sx?)$/.test(file));
+
+          const replacements = [
+            ['@/components/ui/', '@spht/ui/'],
+            ['@/hooks/use-lg', '@spht/hooks/use-lg'],
+            ['@/hooks/use-mobile', '@spht/hooks/use-mobile'],
+            ['@/lib/utils', '@spht/utils'],
+          ];
+
+          for (const file of sourceFiles) {
+            let content = fs.readFileSync(file, 'utf8');
+            for (const [from, to] of replacements) content = content.split(from).join(to);
+            fs.writeFileSync(file, content);
+          }
+
+          function createExports(directory) {
+            const exportsMap = {};
+            for (const file of walk(directory).filter((item) => /\.(?:tsx?|jsx?)$/.test(item))) {
+              const relative = path.relative(directory, file).replaceAll(path.sep, '/');
+              const withoutExtension = relative.replace(/\.(?:tsx?|jsx?)$/, '');
+              const key = withoutExtension === 'index' ? '.' : `./${withoutExtension}`;
+              exportsMap[key] = `./src/${relative}`;
+            }
+            return Object.fromEntries(Object.entries(exportsMap).sort(([a], [b]) => a.localeCompare(b)));
+          }
+
+          const adminPackage = readJson('apps/admin/package.json');
+          const originalDependencies = { ...adminPackage.dependencies };
+          adminPackage.name = '@spht/admin';
+          adminPackage.scripts.typecheck = 'tsc --noEmit';
+          adminPackage.dependencies = {
+            '@spht/hooks': 'workspace:*',
+            '@spht/ui': 'workspace:*',
+            '@spht/utils': 'workspace:*',
+            ...adminPackage.dependencies,
+          };
+          writeJson('apps/admin/package.json', adminPackage);
+
+          writeJson('packages/ui/package.json', {
+            name: '@spht/ui',
+            version: '0.0.0',
+            private: true,
+            type: 'module',
+            sideEffects: false,
+            exports: createExports('packages/ui/src'),
+            dependencies: {
+              '@spht/hooks': 'workspace:*',
+              '@spht/utils': 'workspace:*',
+              ...originalDependencies,
+            },
+          });
+
+          writeJson('packages/hooks/package.json', {
+            name: '@spht/hooks',
+            version: '0.0.0',
+            private: true,
+            type: 'module',
+            sideEffects: false,
+            exports: createExports('packages/hooks/src'),
+            dependencies: {
+              react: originalDependencies.react,
+            },
+          });
+
+          writeJson('packages/utils/package.json', {
+            name: '@spht/utils',
+            version: '0.0.0',
+            private: true,
+            type: 'module',
+            sideEffects: false,
+            exports: {
+              '.': './src/index.ts',
+            },
+            dependencies: {
+              clsx: originalDependencies.clsx,
+              'tailwind-merge': originalDependencies['tailwind-merge'],
+            },
+          });
+
+          const tsconfig = readJson('apps/admin/tsconfig.json');
+          tsconfig.extends = '../../packages/typescript-config/nextjs.json';
+          writeJson('apps/admin/tsconfig.json', tsconfig);
+
+          const componentsPath = 'apps/admin/components.json';
+          const components = readJson(componentsPath);
+          components.aliases = {
+            ...components.aliases,
+            ui: '@spht/ui',
+            hooks: '@spht/hooks',
+            utils: '@spht/utils',
+          };
+          writeJson(componentsPath, components);
+          NODE
+
+          mkdir -p packages/typescript-config packages/biome-config
+
+          cat > packages/typescript-config/package.json <<'EOF'
+          {
+            "name": "@spht/typescript-config",
+            "version": "0.0.0",
+            "private": true,
+            "files": ["base.json", "nextjs.json"]
+          }
+          EOF
+
+          cat > packages/typescript-config/base.json <<'EOF'
+          {
+            "$schema": "https://json.schemastore.org/tsconfig",
+            "compilerOptions": {
+              "allowJs": true,
+              "esModuleInterop": true,
+              "forceConsistentCasingInFileNames": true,
+              "module": "ESNext",
+              "moduleResolution": "Bundler",
+              "resolveJsonModule": true,
+              "skipLibCheck": true,
+              "strict": true,
+              "target": "ES2017"
+            }
+          }
+          EOF
+
+          cat > packages/typescript-config/nextjs.json <<'EOF'
+          {
+            "$schema": "https://json.schemastore.org/tsconfig",
+            "extends": "./base.json",
+            "compilerOptions": {
+              "incremental": true,
+              "isolatedModules": true,
+              "jsx": "react-jsx",
+              "lib": ["dom", "dom.iterable", "esnext"],
+              "noEmit": true,
+              "plugins": [{ "name": "next" }]
+            }
+          }
+          EOF
+
+          cat > packages/biome-config/package.json <<'EOF'
+          {
+            "name": "@spht/biome-config",
+            "version": "0.0.0",
+            "private": true,
+            "files": ["biome.json"]
+          }
+          EOF
+
+          cat > packages/biome-config/biome.json <<'EOF'
+          {
+            "$schema": "https://biomejs.dev/schemas/2.5.6/schema.json",
+            "formatter": {
+              "enabled": true,
+              "indentStyle": "space",
+              "indentWidth": 2,
+              "lineEnding": "lf",
+              "lineWidth": 120
+            },
+            "linter": {
+              "enabled": true,
+              "rules": {
+                "preset": "recommended"
+              }
+            }
+          }
+          EOF
+
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const { fileURLToPath } = require('node:url');
+
+          const nextConfig = `import path from "node:path";\nimport { fileURLToPath } from "node:url";\n\nconst __dirname = path.dirname(fileURLToPath(import.meta.url));\n\n/** @type {import("next").NextConfig} */\nconst nextConfig = {\n  reactCompiler: true,\n  transpilePackages: ["@spht/hooks", "@spht/ui", "@spht/utils"],\n  outputFileTracingRoot: path.join(__dirname, "../.."),\n  compiler: {\n    removeConsole: process.env.NODE_ENV === "production",\n  },\n  async redirects() {\n    return [\n      {\n        source: "/dashboard",\n        destination: "/dashboard/default",\n        permanent: false,\n      },\n    ];\n  },\n};\n\nexport default nextConfig;\n`;
+          fs.writeFileSync('apps/admin/next.config.mjs', nextConfig);
+
+          function walk(directory) {
+            return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+              const fullPath = path.join(directory, entry.name);
+              return entry.isDirectory() ? walk(fullPath) : [fullPath];
+            });
+          }
+
+          for (const cssFile of walk('apps/admin/src').filter((file) => file.endsWith('.css'))) {
+            let content = fs.readFileSync(cssFile, 'utf8');
+            if (!content.includes('@import "tailwindcss"') || content.includes('@source "../../../../packages/ui/src"')) continue;
+            content = content.replace(
+              '@import "tailwindcss";',
+              '@import "tailwindcss";\n@source "../../../../packages/ui/src";\n@source "../../../../packages/hooks/src";',
+            );
+            fs.writeFileSync(cssFile, content);
+          }
+          NODE
+
+          cat > package.json <<'EOF'
+          {
+            "name": "spht-admin-workspace",
+            "version": "0.1.0",
+            "private": true,
+            "packageManager": "pnpm@10.14.0",
+            "scripts": {
+              "dev": "turbo dev --filter=@spht/admin",
+              "build": "turbo build",
+              "start": "pnpm --filter @spht/admin start",
+              "lint": "turbo lint",
+              "format": "turbo format",
+              "check": "turbo check",
+              "typecheck": "turbo typecheck"
+            },
+            "devDependencies": {
+              "@biomejs/biome": "^2.5.6",
+              "turbo": "^2.5.8",
+              "typescript": "^5.9.3"
+            }
+          }
+          EOF
+
+          cat > pnpm-workspace.yaml <<'EOF'
+          packages:
+            - apps/*
+            - packages/*
+          EOF
+
+          cat > turbo.json <<'EOF'
+          {
+            "$schema": "https://turbo.build/schema.json",
+            "tasks": {
+              "dev": {
+                "cache": false,
+                "persistent": true
+              },
+              "build": {
+                "dependsOn": ["^build"],
+                "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+              },
+              "lint": {
+                "dependsOn": ["^lint"]
+              },
+              "format": {
+                "cache": false
+              },
+              "check": {
+                "dependsOn": ["^check"]
+              },
+              "typecheck": {
+                "dependsOn": ["^typecheck"],
+                "outputs": [".next/cache/tsconfig.tsbuildinfo"]
+              }
+            }
+          }
+          EOF
+
+          cat > .npmrc <<'EOF'
+          auto-install-peers=true
+          strict-peer-dependencies=false
+          EOF
+
+          cat > .gitignore <<'EOF'
+          node_modules/
+          .turbo/
+          .next/
+          dist/
+          out/
+          coverage/
+          *.tsbuildinfo
+          .DS_Store
+          .env
+          .env.*
+          !.env.example
+          EOF
+
+          cat > README.md <<'EOF'
+          # SPHT Admin Workspace
+
+          This repository is the administration frontend workspace for the SPHT system.
+
+          ## Structure
+
+          - `apps/admin` — the complete Next.js admin dashboard application.
+          - `packages/ui` — reusable shadcn UI primitives.
+          - `packages/hooks` — reusable responsive React hooks.
+          - `packages/utils` — shared TypeScript utilities.
+          - `packages/typescript-config` — shared TypeScript configuration.
+          - `packages/biome-config` — shared Biome defaults.
+
+          ## Commands
+
+          ```bash
+          pnpm install
+          pnpm dev
+          pnpm lint
+          pnpm typecheck
+          pnpm build
+          ```
+
+          ## Upstream attribution
+
+          The initial admin interface is based on `arhamkhnz/next-shadcn-admin-dashboard`, imported from commit `4727cc7533d46e44b401cac34a38da8566ae9677`. The upstream MIT license is preserved at `apps/admin/LICENSE`.
+          EOF
+
+          mkdir -p docs/migration
+          cat > docs/migration/upstream-source.md <<EOF
+          # Upstream source snapshot
+
+          - Repository: \`${SOURCE_REPOSITORY}\`
+          - Commit: \`${SOURCE_COMMIT}\`
+          - Imported application path: \`apps/admin\`
+
+          ## Relocated shared paths
+
+          | Upstream path | Workspace path |
+          | --- | --- |
+          | \`src/components/ui/**\` | \`packages/ui/src/**\` |
+          | \`src/hooks/**\` | \`packages/hooks/src/**\` |
+          | \`src/lib/utils.ts\` | \`packages/utils/src/index.ts\` |
+
+          All other tracked upstream files remain under \`apps/admin\`.
+          EOF
+
+      - name: Validate package boundaries and upstream inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if grep -RIn --include='*.ts' --include='*.tsx' --include='*.js' --include='*.jsx' '@/\|apps/admin' packages/ui/src packages/hooks/src packages/utils/src; then
+            echo "Shared packages still depend on admin aliases or application paths."
+            exit 1
+          fi
+
+          python3 <<'PY'
+          import os
+
+          with open('/tmp/upstream-files.zlist', 'rb') as source:
+              paths = [item.decode() for item in source.read().split(b'\0') if item]
+
+          missing = []
+          for upstream_path in paths:
+              if upstream_path.startswith('src/components/ui/'):
+                  expected = 'packages/ui/src/' + upstream_path.removeprefix('src/components/ui/')
+              elif upstream_path.startswith('src/hooks/'):
+                  expected = 'packages/hooks/src/' + upstream_path.removeprefix('src/hooks/')
+              elif upstream_path == 'src/lib/utils.ts':
+                  expected = 'packages/utils/src/index.ts'
+              else:
+                  expected = 'apps/admin/' + upstream_path
+
+              if not os.path.lexists(expected):
+                  missing.append((upstream_path, expected))
+
+          if missing:
+              for source_path, expected_path in missing:
+                  print(f'MISSING: {source_path} -> {expected_path}')
+              raise SystemExit(f'{len(missing)} upstream files are missing')
+
+          print(f'Inventory verified: {len(paths)} upstream files are represented in the workspace.')
+          PY
+
+      - name: Install workspace dependencies
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.14.0
+          run_install: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Type-check
+        run: pnpm typecheck
+
+      - name: Build
+        run: pnpm build
+
+      - name: Run Biome checks
+        run: pnpm --filter @spht/admin check
+
+      - name: Commit and push the migration branch
+        run: |
+          git add --all
+          if git diff --cached --quiet; then
+            echo "No migration changes to commit."
+          else
+            git commit -m "refactor: migrate admin dashboard into monorepo"
+          fi
+          git push --force-with-lease origin "$MIGRATION_BRANCH"
+
+      - name: Open or update the migration pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > /tmp/pr-body.md <<'EOF'
+          ## Summary
+
+          - imports the complete upstream admin dashboard snapshot into `apps/admin`
+          - adds pnpm workspaces and Turborepo at the repository root
+          - moves reusable shadcn primitives to `packages/ui`
+          - moves reusable responsive hooks to `packages/hooks`
+          - moves the shared `cn` utility to `packages/utils`
+          - preserves all other upstream files and the MIT license under `apps/admin`
+
+          ## Verification
+
+          - upstream tracked-file inventory comparison
+          - `pnpm typecheck`
+          - `pnpm build`
+          - `pnpm --filter @spht/admin check`
+
+          Source snapshot: `arhamkhnz/next-shadcn-admin-dashboard@4727cc7533d46e44b401cac34a38da8566ae9677`.
+          EOF
+
+          if gh pr view "$MIGRATION_BRANCH" --json url >/dev/null 2>&1; then
+            gh pr edit "$MIGRATION_BRANCH" --title "Refactor admin dashboard into monorepo" --body-file /tmp/pr-body.md
+          else
+            gh pr create --base main --head "$MIGRATION_BRANCH" --title "Refactor admin dashboard into monorepo" --body-file /tmp/pr-body.md --draft
+          fi
