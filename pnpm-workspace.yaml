@@ -9,3 +9,6 @@ minimumReleaseAgeExclude:
   - 'baseline-browser-mapping@2.11.10'
   - 'jose@6.2.7'
   - 'simple-icons@16.28.0'
+
+allowBuilds:
+  sharp: true
