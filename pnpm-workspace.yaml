@@ -1,3 +1,11 @@
 packages:
   - apps/*
   - packages/*
+
+# pnpm 11 waits 24 hours before trusting newly published releases by default.
+# These exact versions were already committed in the verified pnpm 10 lockfile.
+minimumReleaseAgeExclude:
+  - '@hookform/resolvers@5.7.1'
+  - 'baseline-browser-mapping@2.11.10'
+  - 'jose@6.2.7'
+  - 'simple-icons@16.28.0'
