@@ -1,0 +1,14 @@
+{
+  "name": "@spht/hooks",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./use-lg": "./src/use-lg.ts",
+    "./use-mobile": "./src/use-mobile.ts"
+  },
+  "dependencies": {
+    "react": "^19.2.8"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "spht-admin-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@10.14.0",
+  "scripts": {
+    "dev": "turbo dev --filter=@spht/admin",
+    "build": "turbo build",
+    "start": "pnpm --filter @spht/admin start",
+    "lint": "turbo lint",
+    "format": "turbo format",
+    "check": "turbo check",
+    "typecheck": "turbo typecheck"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.6",
+    "turbo": "^2.5.8",
+    "typescript": "^5.9.3"
+  }
+}
