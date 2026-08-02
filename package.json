@@ -2,7 +2,7 @@
   "name": "spht-admin-workspace",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.14.0",
+  "packageManager": "pnpm@11.7.0",
   "scripts": {
     "dev": "turbo dev --filter=@spht/admin",
     "build": "turbo build",
@@ -18,5 +18,8 @@
     "@types/react-dom": "^19.2.4",
     "turbo": "^2.5.8",
     "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }
