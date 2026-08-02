@@ -14,4 +14,13 @@
 
 All other tracked upstream files remain under `apps/admin`.
 
-The migration branch is validated by the repository's pull-request CI before merge.
+## Verification commands
+
+The repository CI validates the final workspace with:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm typecheck
+pnpm build
+pnpm --filter @spht/admin check
+```
